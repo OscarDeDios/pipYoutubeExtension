@@ -1,21 +1,17 @@
 {
-  "name": "Tutorial Oscapps",
+  "name": "Youtube picture in picture",
   "manifest_version": 2,
   "version": "1.0.0",
-  "short_name": "Tutorial Oscapps",
+  "short_name": "Youtube picture in picture",
   "icons": {
     "48": "img/pipExt.png",
     "128": "img/pipExt128.png"
   },
-  "description": "Tutorial Oscapps",
-    "content_scripts": [
+  "description": "Youtube picture in picture",
+  "content_scripts": [
     {
-      "matches": ["https://mail.google.com/*"],
-      "js": ["jquery/jquery-2.0.3.min.js","inject.js"],
-      "css": ["inject.css"]
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["inject.js"]
     }
-  ],
-  "web_accessible_resources": [
-
   ]
 }
