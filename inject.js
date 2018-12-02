@@ -1,17 +1,29 @@
 (function(){
+	const VIDEO_CONTROL_ELEMENT = '.ytp-right-controls'
+	const PIP_BUTTON_ID = 'pip-ext__pip-button'
+
 	const insertPipButton = () => {
-		const elemToAppendButton = document.querySelector('.ytp-right-controls')
+		if (isPipButton()) {
+			return false;
+		}
+
+		if (!isVideoPlayer()) {
+			setTimeout(insertPipButton, 1000)
+			return false
+		}
+
+		const elemToAppendButton = document.querySelector(VIDEO_CONTROL_ELEMENT)
 		const pipButton = getPipButtonElement();
 
 		elemToAppendButton.insertBefore(pipButton, elemToAppendButton.firstChild);
 
-		document.getElementById("pip-ext__pip-button").addEventListener('click', pipYoutubeVideo);
+		document.getElementById(PIP_BUTTON_ID).addEventListener('click', pipYoutubeVideo);
 	}
 
 	const getPipButtonElement = () => {
 		const button = document.createElement('BUTTON')
 		button.className= 'ytp-button'
-		button.id= 'pip-ext__pip-button'
+		button.id= PIP_BUTTON_ID
 		button.title = 'Picture in picture mode'
 		button.setAttribute('aria-pressed', false)
 		button.innerHTML = `
@@ -21,6 +33,14 @@
 			</svg>`
 
 		return button
+	}
+
+	const isPipButton = () => {
+		return document.getElementById(PIP_BUTTON_ID)
+	}
+
+	const isVideoPlayer = () => {
+		return document.querySelector(VIDEO_CONTROL_ELEMENT)
 	}
 
 	const pipYoutubeVideo = () => {
