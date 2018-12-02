@@ -5,3 +5,4 @@ the video always visible.
 
 The extension uses the new picture in picture API: https://wicg.github.io/picture-in-picture/
 
+The extension is published in the Chrome Store: https://chrome.google.com/webstore/detail/youtube-picture-in-pictur/eaihaepngldfifgokoekaebbpmdphhjo
